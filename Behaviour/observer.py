@@ -22,3 +22,21 @@ class Observable:
 class Observer:
     def update(self, *args, **kwargs):
         pass
+
+
+class AmericanStockMarket(Observer):
+    def update(self, *args, **kwargs):
+        print("American stock market received: {0}\n{1}".format(args, kwargs))
+
+
+class EuropeanStockMarket(Observer):
+    def update(self, *args, **kwargs):
+        print("European stock market received: {0}\n{1}".format(args, kwargs))
+
+
+really_big_company = Observable()
+american_observer = AmericanStockMarket()
+really_big_company.register(american_observer)
+european_observer = EuropeanStockMarket()
+really_big_company.register(european_observer)
+really_big_company.update_observers('important_update', msg="CEO unexpectedly resigns")
