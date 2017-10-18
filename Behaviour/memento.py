@@ -1,5 +1,6 @@
 import copy
 
+
 class Memento:
     def __init__(self, data):
         # make a deep copy of every variable in the gives class
